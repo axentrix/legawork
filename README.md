@@ -1,6 +1,6 @@
 # Legawork Law Office website
 
-The bilingual (English / Bulgarian) one-page website for Legawork Law Office, Sofia.
+The bilingual (English / Bulgarian) website for Legawork Law Office, Sofia.
 
 It is a plain static site with no build step. It is published with GitHub Pages at https://lega.work (see `CNAME`).
 
@@ -32,7 +32,7 @@ The Bulgarian text comes from the firm's own documents. The English is a transla
 ## Animations
 
 - Intro screen with the logo, then the hero builds itself.
-- The hero logo moves as a balance scale: the two slanted bars are the beams, the coloured shapes ride on their ends. Tuning lives in the script block commented "Logo as a balance".
+- The hero logo moves as a balance scale: the two slanted bars are the beams, the coloured shapes ride on their ends. Tuning lives in `assets/js/site.js`, in the block commented "Hero logo as a balance scale".
 - The hamburger menu opens as a circle growing out of the button, with the links rising in.
 - Practice areas are stacking cards that shrink and dim as the next card slides over.
 - Brand shapes in each section float, rotate and pop in on scroll (`<i class="shape ...">` elements, tuned with `data-speed` and `data-rot`).
