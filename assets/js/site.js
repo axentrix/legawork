@@ -216,3 +216,63 @@
   addEventListener("resize", onScroll);
   onScroll();
 })();
+
+/* ---------- Cookie banner ----------
+   Google Tag Manager (and with it Google Analytics) loads only after "Accept".
+   The choice is stored in this browser as lw-consent = granted | denied. */
+(function () {
+  var KEY = "lw-consent";
+  function get() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+  function set(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
+  function T(en, bg) { return '<span class="en">' + en + '</span><span class="bg">' + bg + '</span>'; }
+
+  var box = document.createElement("section");
+  box.className = "cookie";
+  box.setAttribute("aria-label", "Cookies");
+  box.innerHTML =
+    '<span class="deco" aria-hidden="true"></span>' +
+    '<h2><i class="drop-a c-yellow" aria-hidden="true"></i>' + T("Cookies", "Бисквитки") + '</h2>' +
+    '<p>' + T("We would like to use Google Analytics cookies to see how visitors use this site, so we can improve it. They are set only if you accept. You can change your choice at any time under \u201cCookie settings\u201d at the bottom of the page.",
+              "Бихме искали да използваме бисквитки на Google Analytics, за да виждаме как посетителите използват сайта и да го подобряваме. Те се записват само ако приемете. Можете да промените избора си по всяко време от \u201eНастройки за бисквитки\u201c в долната част на страницата.") + '</p>' +
+    '<div class="btns">' +
+      '<button type="button" class="btn" data-choice="granted">' + T("Accept", "Приемам") + '</button>' +
+      '<button type="button" class="btn out" data-choice="denied">' + T("Decline", "Отказвам") + '</button>' +
+    '</div>';
+  document.body.appendChild(box);
+
+  function show() { box.classList.add("show"); }
+  function hide() { box.classList.remove("show"); }
+
+  box.querySelectorAll("[data-choice]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var v = b.dataset.choice;
+      set(v);
+      if (v === "granted") { if (window.lwLoadGTM) window.lwLoadGTM(); }
+      else {
+        if (window.gtag) gtag("consent", "update", { analytics_storage: "denied" });
+        /* remove Google Analytics cookies left from an earlier "Accept" */
+        document.cookie.split(";").forEach(function (c) {
+          var name = c.split("=")[0].trim();
+          if (/^_ga/.test(name)) {
+            var host = location.hostname.replace(/^www\./, "");
+            ["", "; domain=." + host, "; domain=" + host].forEach(function (d) { document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/" + d; });
+          }
+        });
+      }
+      hide();
+    });
+  });
+
+  /* "Cookie settings" link in the footer reopens the banner */
+  var nav = document.querySelector(".foot-nav");
+  if (nav) {
+    var link = document.createElement("button");
+    link.type = "button"; link.className = "cookie-link";
+    link.innerHTML = T("Cookie settings", "Настройки за бисквитки");
+    link.addEventListener("click", show);
+    nav.appendChild(link);
+  }
+
+  /* first visit: show after the intro animation on the homepage, quickly elsewhere */
+  if (!get()) setTimeout(show, document.querySelector(".curtain") ? 2600 : 700);
+})();
