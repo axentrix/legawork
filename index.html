@@ -122,6 +122,17 @@ section.hero.band > .wrap { display: flex; flex-direction: column; align-items: 
 .stage-wrap { position: relative; width: clamp(180px, 19vw, 250px); aspect-ratio: 410 / 533; perspective: 1000px; margin: 12px 0 40px; }
 .stage-wrap::before { content: ""; position: absolute; inset: -30%; border-radius: 50%; background: radial-gradient(closest-side, color-mix(in srgb, var(--violet) 32%, transparent), transparent); pointer-events: none; }
 .stage { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; will-change: transform; }
+/* Founder portrait in a circle beside the logo */
+.hero-portrait { position: absolute; z-index: 2; left: calc(100% + 28px); bottom: 6%; width: clamp(96px, 10vw, 140px); aspect-ratio: 1; text-decoration: none; color: var(--white); animation: portrait-in 1s var(--spring) 2s both; }
+.hero-portrait img { position: relative; width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; border: 4px solid var(--indigo); box-shadow: 0 0 0 3px var(--yellow), 0 18px 34px -12px rgba(8, 4, 40, .7); animation: bob 5s ease-in-out 3s infinite; transition: transform .4s var(--spring); }
+.hero-portrait:hover img { transform: scale(1.06); }
+.hero-portrait .ring { position: absolute; inset: -12px; border-radius: 50%; border: 2px dashed color-mix(in srgb, var(--teal) 70%, transparent); animation: spin 18s linear infinite; }
+.hero-portrait .cap { position: absolute; left: 50%; top: calc(100% + 14px); transform: translateX(-50%); white-space: nowrap; display: flex; flex-direction: column; align-items: center; font: 500 11px var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--teal); }
+.hero-portrait .cap b { font: 600 14px var(--f-body); letter-spacing: 0; text-transform: none; color: var(--white); }
+@keyframes portrait-in { from { opacity: 0; transform: scale(.3) rotate(-25deg); } to { opacity: 1; transform: none; } }
+@keyframes bob { 0%, 100% { translate: 0 0; } 50% { translate: 0 -8px; } }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (max-width: 640px) { .hero-portrait { left: calc(100% - 16px); bottom: 0; width: 84px; } .hero-portrait .cap b { font-size: 12px; } .hero-portrait .cap { font-size: 10px; } }
 .layer { position: absolute; inset: 0; transform-style: preserve-3d; will-change: transform; }
 .layer svg { width: 100%; height: 100%; overflow: visible; display: block; }
 .layer.c { transform: translateZ(26px); }
@@ -326,8 +337,8 @@ body.switching main, body.switching footer { opacity: 0; filter: blur(2px); }
     <i class="shape ring c-teal hide-m" style="--x:-60px;--y:12%;--s:180px" data-speed="-.18" data-rot="40"></i>
     <i class="shape circle c-yellow" style="--x:46%;--y:84%;--s:22px" data-speed=".5"></i>
     <div class="wrap">
-        <div class="stage-wrap" aria-hidden="true">
-          <div class="stage" id="stage">
+        <div class="stage-wrap">
+          <div class="stage" id="stage" aria-hidden="true">
           <div class="layer"><svg viewBox="-20 -20 410 533"><g class="kin"><g class="in" style="--d:1.2s;--fx:0px;--fy:80px;--fr:0deg"><rect x="22.6699" y="125.974" width="120.179" height="346.117" rx="60.0897" fill="white" fill-opacity="0.12"/></g></g></svg></div>
           <div class="layer"><svg viewBox="-20 -20 410 533"><g class="kin"><g class="in" style="--d:1.25s;--fx:0px;--fy:-80px;--fr:0deg"><rect x="346.188" y="366.674" width="120.179" height="346.117" rx="60.0897" transform="rotate(-179.474 346.188 366.674)" fill="white" fill-opacity="0.12"/></g></g></svg></div>
           <div class="layer"><svg viewBox="-20 -20 410 533"><g class="kin"><g class="in" style="--d:1.3s;--fx:-60px;--fy:0px;--fr:20deg"><rect x="309.08" y="224.384" width="125.639" height="346.117" rx="62.8193" transform="rotate(63.2518 309.08 224.384)" fill="white" fill-opacity="0.12"/></g></g></svg></div>
@@ -337,6 +348,11 @@ body.switching main, body.switching footer { opacity: 0; filter: blur(2px); }
           <div class="layer c"><svg viewBox="-20 -20 410 533"><g class="kin"><g class="in" style="--d:1.65s;--fx:-160px;--fy:160px;--fr:-120deg"><path d="M142.86 417.566C142.86 432.73 137.545 446.651 128.677 457.572L106.323 468.838C75.0014 484.624 36.8126 472.03 21.0264 440.708C19.7153 438.107 18.6009 435.458 17.6758 432.779C16.4776 427.905 15.8418 422.81 15.8418 417.566V397.906C19.9331 380.14 31.6038 364.258 49.1562 355.412L142.86 308.184V417.566Z" fill="#FFD857"/></g></g></svg></div>
           <div class="layer c"><svg viewBox="-20 -20 410 533"><g class="kin"><g class="in" style="--d:1.75s;--fx:170px;--fy:-150px;--fr:120deg"><path d="M227.555 73.0107C227.555 49.8091 239.998 29.5147 258.573 18.4326L262.069 16.6699C293.391 0.883667 331.58 13.4772 347.366 44.7988C363.153 76.1208 350.558 114.31 319.236 130.097L227.555 176.304V73.0107Z" fill="#D3004D"/></g></g></svg></div>
           </div>
+          <a class="hero-portrait" href="#team">
+            <span class="ring" aria-hidden="true"></span>
+            <img src="assets/img/gergana-staneva-circle.jpg" alt="Gergana Staneva" width="480" height="480">
+            <span class="cap"><b><span class="en">Gergana Staneva</span><span class="bg">адв. Гергана Станева</span></b><span class="en">Founder</span><span class="bg">Основател</span></span>
+          </a>
         </div>
       <div>
         <p class="label"><span class="en">Legawork Law Office · Sofia</span><span class="bg">Адвокатска кантора Legawork · София</span></p>
