@@ -1,0 +1,779 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Legawork Law Office, Sofia. Attorney Gergana Staneva and partners: banking, commercial, property, tax, administrative, competition and anti-discrimination law.">
+<meta name="theme-color" content="#2a1f6e">
+<link rel="icon" type="image/svg+xml" href="assets/logo/mark.svg">
+<title>Legawork Law Office</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: brand bands alternate deep indigo and white; the logo's four shapes (teal circle, red drop, violet circle, yellow drop) recur as moving elements. Single brand look by design, not theme-switched. */
+:root {
+  --indigo: #2a1f6e;
+  --indigo-2: #36288a;
+  --violet: #c466fb;
+  --lilac: #8c6ef2;
+  --teal: #55c8c8;
+  --red: #d3004d;
+  --yellow: #ffd857;
+  --white: #ffffff;
+  --mist: #f3f1fb;
+  --ink: #1d1548;
+  --muted: #5e5888;
+  --line: #e2def3;
+  --f-display: "Unbounded", "Arial Rounded MT Bold", "Segoe UI", system-ui, sans-serif;
+  --f-body: "Manrope", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --wrap: 1180px;
+  --head: 66px;
+  --ease: cubic-bezier(.2, .7, .1, 1);
+  --spring: cubic-bezier(.34, 1.56, .64, 1);
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--white); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.65; }
+body.en .bg, body.bg .en { display: none !important; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--violet); outline-offset: 3px; border-radius: 3px; }
+
+.wrap {
+  position: relative; z-index: 1; max-width: var(--wrap); margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+@media (min-width: 720px) { .wrap { padding-left: max(32px, env(safe-area-inset-left, 0px)); padding-right: max(32px, env(safe-area-inset-right, 0px)); } }
+
+.label { font-family: var(--f-mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--violet); }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 600; line-height: 1.12; margin: 0; text-wrap: balance; letter-spacing: -.01em; }
+h2 { font-size: clamp(28px, 3.8vw, 44px); }
+h3 { font-size: 22px; }
+p { margin: 0; }
+
+/* Bands */
+.band { position: relative; overflow: clip; }
+.band.dark { background: var(--indigo); color: var(--white); --muted: rgba(255, 255, 255, .72); --line: rgba(255, 255, 255, .16); }
+.band.dark .label { color: var(--teal); }
+.band.light { background: var(--white); }
+
+/* Logo */
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.logo .mk { width: 29px; height: 38px; flex: none; }
+.logo .wd { width: 138px; height: 18px; flex: none; }
+
+/* Header */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--indigo); }
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in srgb, var(--indigo) 94%, transparent); backdrop-filter: blur(10px); color: var(--white); transition: box-shadow .3s; }
+header.top.scrolled { box-shadow: 0 10px 30px -20px rgba(20, 10, 60, .8); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; transition: padding .3s var(--ease); }
+header.top.scrolled .wrap { padding-block: 9px; }
+nav.main { position: relative; display: flex; gap: 26px; font-size: 14px; font-weight: 500; }
+nav.main a { text-decoration: none; color: rgba(255, 255, 255, .7); padding-block: 4px; transition: color .25s; }
+nav.main a:hover, nav.main a.active { color: var(--white); }
+nav.main .ind { position: absolute; bottom: -3px; left: 0; height: 3px; width: 0; border-radius: 3px; background: var(--teal); opacity: 0; transition: transform .45s var(--ease), width .45s var(--ease), opacity .3s, background .45s; }
+.lang { display: flex; border: 1px solid rgba(255, 255, 255, .25); border-radius: 999px; padding: 2px; }
+.lang button { font: 500 12px var(--f-mono); letter-spacing: .06em; border: 0; background: none; color: rgba(255, 255, 255, .7); padding: 5px 10px; border-radius: 999px; cursor: pointer; }
+.lang button[aria-pressed="true"] { background: var(--yellow); color: var(--indigo); }
+@media (max-width: 920px) { nav.main { display: none; } }
+
+/* Buttons */
+.btn { position: relative; overflow: hidden; isolation: isolate; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; cursor: pointer; font: 600 15px var(--f-body); padding: 15px 24px; border-radius: 999px; border: 0; background: var(--indigo); color: var(--white); transition: color .35s var(--ease); }
+.btn::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--lilac); border-radius: inherit; transform: scaleX(0); transform-origin: right; transition: transform .5s var(--ease); }
+.btn:hover::before { transform: scaleX(1); transform-origin: left; }
+.btn.yellow { background: var(--yellow); color: var(--indigo); }
+.btn.yellow::before { background: var(--teal); }
+.btn.line { background: transparent; color: var(--white); box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, .5); }
+.btn.line::before { background: var(--white); }
+.btn.line:hover { color: var(--indigo); }
+.btn .arr { display: inline-block; transition: transform .35s var(--ease); }
+.btn:hover .arr { transform: translateX(5px); }
+
+/* Floating brand shapes */
+.shape { position: absolute; z-index: 0; left: var(--x); top: var(--y); width: var(--s); height: var(--s); pointer-events: none; scale: 1; transition: scale 1s var(--spring); transition-delay: var(--d, 0s); will-change: transform; }
+.shape.pre { scale: 0; }
+.circle { border-radius: 50%; }
+.drop-a { border-radius: 50% 0 50% 50%; }
+.drop-b { border-radius: 50% 50% 50% 0; }
+.pill { height: calc(var(--s) * 2.4); border-radius: 999px; opacity: .22; }
+.ring { border-radius: 50%; border: 2px solid currentColor; opacity: .35; }
+.c-teal { background: var(--teal); color: var(--teal); }
+.c-red { background: var(--red); color: var(--red); }
+.c-violet { background: var(--violet); color: var(--violet); }
+.c-yellow { background: var(--yellow); color: var(--yellow); }
+.c-white { background: var(--white); color: var(--white); }
+.ring.c-teal, .ring.c-red, .ring.c-violet, .ring.c-yellow, .ring.c-white { background: transparent; }
+@media (max-width: 700px) { .shape.hide-m { display: none; } }
+
+/* Hero */
+section.hero.band > .wrap { display: flex; flex-direction: column; align-items: center; text-align: center; padding-block: 40px 72px; }
+@media (min-width: 900px) { section.hero.band > .wrap { padding-block: 56px 96px; } }
+.hero h1 { font-size: clamp(32px, 5vw, 64px); max-width: 18ch; margin-inline: auto; }
+.hero h1 em { font-style: normal; color: var(--teal); }
+.hero .lede { font-size: clamp(16px, 1.5vw, 18px); color: var(--muted); max-width: 58ch; margin: 24px auto 0; }
+.ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 32px; }
+.facts { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 40px; margin: 40px 0 0; padding: 22px 0 0; border-top: 1px solid var(--line); list-style: none; }
+.facts li { display: flex; flex-direction: column; align-items: center; gap: 2px; font-size: 14px; }
+.facts li > span:first-child { font: 500 11px var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--teal); }
+/* Logo as a balance scale: beams tip on their pivots, coloured shapes ride on the beam ends; the whole mark sways slightly in 3D */
+.stage-wrap { position: relative; width: clamp(180px, 19vw, 250px); aspect-ratio: 410 / 533; perspective: 1000px; margin: 12px 0 40px; }
+.stage-wrap::before { content: ""; position: absolute; inset: -30%; border-radius: 50%; background: radial-gradient(closest-side, color-mix(in srgb, var(--violet) 32%, transparent), transparent); pointer-events: none; }
+.stage { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; will-change: transform; }
+.layer { position: absolute; inset: 0; transform-style: preserve-3d; will-change: transform; }
+.layer svg { width: 100%; height: 100%; overflow: visible; display: block; }
+.layer.c { transform: translateZ(26px); }
+.layer.c svg { filter: drop-shadow(0 14px 18px rgba(12, 6, 48, .45)); }
+.layer .in { transform-box: fill-box; transform-origin: center; animation: assemble 1.1s var(--spring) both; animation-delay: var(--d); }
+@keyframes assemble { from { opacity: 0; transform: translate(var(--fx), var(--fy)) rotate(var(--fr)) scale(.4); } to { opacity: 1; transform: none; } }
+
+/* Ticker */
+.ticker { background: var(--lilac); color: var(--white); overflow: hidden; padding-block: 20px; }
+.ticker .track { display: flex; width: max-content; gap: 40px; animation: slide 48s linear infinite; font-family: var(--f-display); font-weight: 500; font-size: clamp(18px, 2vw, 24px); white-space: nowrap; }
+.ticker .track > span { display: inline-flex; align-items: center; gap: 40px; }
+.ticker .track > span::after { content: ""; width: 16px; height: 16px; border-radius: 50%; background: var(--yellow); }
+.ticker .track > span:nth-child(4n+2)::after { background: var(--teal); border-radius: 50% 0 50% 50%; }
+.ticker .track > span:nth-child(4n+3)::after { background: var(--red); border-radius: 50% 50% 50% 0; }
+.ticker .track > span:nth-child(4n+4)::after { background: var(--white); }
+.ticker:hover .track { animation-play-state: paused; }
+@keyframes slide { to { transform: translateX(-50%); } }
+
+/* Sections */
+section.band > .wrap { display: grid; grid-template-columns: 1fr; gap: 28px; padding-block: 80px; }
+@media (min-width: 900px) { section.band > .wrap { grid-template-columns: 240px minmax(0, 1fr); gap: 64px; padding-block: 120px; } }
+.side { display: flex; flex-direction: column; gap: 12px; }
+@media (min-width: 900px) { .side { position: sticky; top: 110px; align-self: start; } }
+.body { min-width: 0; display: flex; flex-direction: column; gap: 40px; }
+.prose { display: flex; flex-direction: column; gap: 18px; max-width: 64ch; }
+.prose p { color: var(--muted); }
+.prose p.lead { color: inherit; font-size: 19px; line-height: 1.55; }
+
+/* Mission: fanned cards like the brand slides */
+.fan { position: relative; padding: 26px 18px 70px; max-width: 760px; }
+.fan .back { position: absolute; left: 6%; right: 6%; bottom: 0; height: 60%; border-radius: 22px; transform-origin: 50% 100%; }
+.fan .back.y { background: var(--yellow); transform: rotate(calc(-1deg - var(--f, 0) * 5deg)) translateY(calc(var(--f, 0) * 6px)); }
+.fan .back.r { background: var(--red); transform: rotate(calc(1deg + var(--f, 0) * 6deg)) translateY(calc(var(--f, 0) * -8px)); bottom: 22px; }
+.fan .front { position: relative; background: var(--teal); color: var(--indigo); border-radius: 22px; padding: clamp(26px, 4vw, 48px); transform: translateY(calc((1 - var(--f, 0)) * 20px)); }
+.fan .front p { font-family: var(--f-display); font-weight: 600; font-size: clamp(20px, 2.5vw, 30px); line-height: 1.3; }
+.principles { display: grid; grid-template-columns: 1fr; gap: 0; }
+@media (min-width: 760px) { .principles { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; } }
+.principle { position: relative; padding: 26px 0; display: flex; flex-direction: column; gap: 12px; }
+.principle .dot { display: block; width: 34px; height: 34px; }
+.principle h3 { font-size: 19px; }
+.principle p { color: var(--muted); font-size: 15px; }
+.principle::after { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--line); transform-origin: left; transition: transform 1.1s var(--ease); transition-delay: calc(var(--i, 0) * 120ms + .1s); }
+.principle.pre::after { transform: scaleX(0); }
+
+/* Services: stacking cards in brand colours */
+.intro { font-size: 18px; color: var(--muted); max-width: 62ch; }
+.stack { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 28px; }
+.card {
+  --c-bg: var(--teal); --c-fg: var(--indigo);
+  position: sticky; top: calc(var(--head) + 24px + var(--n) * 12px);
+  min-height: 270px; padding: clamp(24px, 3.4vw, 44px); border-radius: 26px; overflow: hidden;
+  background: var(--c-bg); color: var(--c-fg);
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: start;
+  transform-origin: 50% 0; will-change: transform; box-shadow: 0 -18px 40px -28px rgba(30, 20, 80, .55);
+}
+.card.k-red { --c-bg: var(--red); --c-fg: var(--white); }
+.card.k-yellow { --c-bg: var(--yellow); --c-fg: var(--indigo); }
+.card.k-violet { --c-bg: var(--violet); --c-fg: var(--indigo); }
+.card .main { display: flex; flex-direction: column; gap: 16px; min-width: 0; position: relative; z-index: 1; }
+.card .pos { font: 500 12px var(--f-mono); letter-spacing: .08em; opacity: .7; font-variant-numeric: tabular-nums; }
+.card h3 { font-size: clamp(24px, 3.2vw, 38px); max-width: 20ch; }
+.card p { font-size: 15.5px; max-width: 52ch; opacity: .85; padding-top: 14px; border-top: 1px solid color-mix(in srgb, var(--c-fg) 28%, transparent); }
+.card .glyph { display: block; width: clamp(64px, 9vw, 120px); height: clamp(64px, 9vw, 120px); background: var(--c-fg); opacity: .16; transform: rotate(var(--gr, 0deg)); }
+.card .main, .card .glyph { transition: opacity .8s var(--ease), translate .8s var(--ease); }
+.card.pre .main { opacity: .2; translate: 0 24px; }
+@media (max-width: 759px) { .card { --head: 58px; top: calc(var(--head) + 16px + var(--n) * 8px); min-height: 210px; } }
+
+/* Team */
+.founder { display: grid; grid-template-columns: 1fr; gap: 40px; }
+@media (min-width: 880px) { .founder { grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: 60px; align-items: start; } }
+.photo-wrap { position: relative; max-width: 360px; }
+@media (min-width: 880px) { .photo-wrap { position: sticky; top: 110px; } }
+.photo-wrap::before { content: ""; position: absolute; inset: 18px -18px -18px 18px; border-radius: 22px; background: var(--lilac); }
+.photo { position: relative; margin: 0; aspect-ratio: 4 / 5; max-width: 100%; overflow: hidden; border-radius: 22px; background: var(--indigo-2); }
+.photo img { width: 100%; height: 115%; object-fit: cover; display: block; transform: translateY(var(--py, 0%)); scale: 1; transition: scale 1.2s var(--ease); }
+.photo-wrap.pre .photo img { scale: 1.08; }
+.photo-wrap .tag { position: absolute; left: 16px; bottom: 16px; z-index: 2; background: var(--red); color: var(--white); font: 600 13px var(--f-body); padding: 8px 14px; border-radius: 999px; }
+.photo-wrap .s1 { position: absolute; z-index: 2; right: -34px; top: 34px; width: 66px; height: 66px; border-radius: 50%; background: var(--teal); will-change: transform; }
+.photo-wrap .s2 { position: absolute; z-index: 2; left: -24px; top: 78%; width: 48px; height: 48px; border-radius: 50% 0 50% 50%; background: var(--yellow); will-change: transform; }
+@media (max-width: 500px) { .photo-wrap .s1 { right: -8px; } .photo-wrap .s2 { left: -8px; } .photo-wrap.alt .s1 { left: -8px; } .photo-wrap.alt .s2 { right: -8px; } }
+.person { display: flex; flex-direction: column; gap: 22px; min-width: 0; }
+.person h3 { font-size: clamp(28px, 3.4vw, 42px); }
+.person .role { font: 500 12px var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--teal); }
+.highlights { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.highlights li { font-size: 13px; padding: 6px 13px; border-radius: 999px; background: rgba(255, 255, 255, .1); }
+.highlights li:nth-child(1) { box-shadow: inset 3px 0 0 var(--teal); }
+.highlights li:nth-child(2) { box-shadow: inset 3px 0 0 var(--yellow); }
+.highlights li:nth-child(3) { box-shadow: inset 3px 0 0 var(--red); }
+.member { display: flex; align-items: center; gap: 18px; padding-top: 28px; border-top: 1px solid var(--line); }
+.member .ini { width: 68px; height: 68px; border-radius: 50% 50% 50% 0; display: grid; place-items: center; background: var(--yellow); color: var(--indigo); font: 600 20px var(--f-display); flex: none; }
+.member h3 { font-size: 22px; }
+.member .role { font: 500 12px var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+
+.founder.partner { padding-top: 64px; margin-top: 24px; border-top: 1px solid var(--line); }
+@media (min-width: 880px) { .founder.partner { grid-template-columns: minmax(0, 1fr) minmax(0, 340px); } .founder.partner .photo-wrap { order: 2; } }
+.photo-wrap.alt::before { background: var(--teal); inset: 18px 18px -18px -18px; }
+.photo-wrap.alt .s1 { background: var(--yellow); border-radius: 50% 50% 50% 0; right: auto; left: -30px; }
+.photo-wrap.alt .s2 { background: var(--violet); border-radius: 50%; left: auto; right: -22px; }
+.photo-wrap.alt .tag { background: var(--violet); color: var(--indigo); }
+.cv { display: grid; grid-template-columns: 1fr; gap: 28px; }
+.cv .label { display: block; margin-bottom: 10px; }
+.timeline { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+.timeline li { display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 14.5px; color: var(--muted); }
+.timeline time { font: 500 13px var(--f-mono); color: var(--yellow); font-variant-numeric: tabular-nums; }
+
+/* Contact */
+.contact-grid { display: grid; grid-template-columns: 1fr; gap: 40px; }
+@media (min-width: 860px) { .contact-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 56px; } }
+.details { display: flex; flex-direction: column; gap: 22px; }
+.details .row { display: flex; flex-direction: column; gap: 4px; }
+.details .val { font-size: 18px; font-weight: 500; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; overflow-wrap: anywhere; }
+.copy { font: 500 11px var(--f-mono); letter-spacing: .06em; text-transform: uppercase; border: 1px solid var(--line); background: none; color: var(--muted); padding: 4px 9px; border-radius: 999px; cursor: pointer; }
+.copy:hover { color: var(--indigo); border-color: var(--indigo); }
+form.enquiry { background: var(--mist); border-radius: 26px; padding: clamp(20px, 3vw, 34px); display: grid; gap: 16px; }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field label { font-size: 13px; font-weight: 600; transition: color .2s; }
+.field:focus-within label { color: var(--violet); }
+.field input, .field select, .field textarea { font: 15px var(--f-body); color: var(--ink); background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; width: 100%; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--violet); box-shadow: 0 0 0 3px color-mix(in srgb, var(--violet) 25%, transparent); }
+.two { display: grid; grid-template-columns: 1fr; gap: 16px; }
+@media (min-width: 560px) { .two { grid-template-columns: 1fr 1fr; } }
+.consent { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; color: var(--muted); }
+.consent input { margin-top: 3px; accent-color: var(--violet); }
+.status { font-size: 14px; color: var(--violet); min-height: 1.4em; }
+.status:not(:empty) { animation: up .5s var(--ease) both; }
+
+/* Footer */
+footer .wrap { padding-block: 48px; display: grid; grid-template-columns: 1fr; gap: 24px; font-size: 13px; color: var(--muted); }
+@media (min-width: 760px) { footer .wrap { grid-template-columns: 1.3fr 1fr 1fr; } }
+footer .logo { color: var(--white); margin-bottom: 8px; }
+footer .mono { font-family: var(--f-mono); font-size: 12px; line-height: 1.9; overflow-wrap: anywhere; }
+
+/* Intro curtain: the mark assembles, then the indigo panel lifts */
+.curtain { position: fixed; inset: 0; z-index: 50; background: var(--indigo); color: var(--white); display: grid; place-items: center; pointer-events: none; animation: lift .9s cubic-bezier(.7, 0, .2, 1) .95s forwards; }
+.curtain .logo { flex-direction: column; gap: 16px; }
+.curtain .mk { width: 84px; height: 112px; animation: pop .8s var(--spring) both; }
+.curtain .wd { width: 220px; height: 29px; animation: up .6s var(--ease) .25s both; }
+@keyframes lift { to { transform: translateY(-100%); } }
+@keyframes pop { from { transform: scale(.2) rotate(-40deg); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes rise { from { transform: translateY(105%); } to { transform: none; } }
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes up { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+
+/* Hero load sequence */
+.ln { display: block; overflow: hidden; padding-bottom: .12em; margin-bottom: -.12em; }
+.ln > * { display: inline-block; animation: rise 1s var(--ease) both; }
+.ln:nth-child(1) > * { animation-delay: 1.25s; }
+.ln:nth-child(2) > * { animation-delay: 1.38s; }
+.hero .label { animation: fade .8s ease 1.15s both; }
+.hero .lede { animation: up .9s var(--ease) 1.6s both; }
+.hero .ctas { animation: up .9s var(--ease) 1.75s both; }
+.hero .facts { animation: up .9s var(--ease) 1.9s both; }
+header.top { animation: fade .6s ease 1.1s both; }
+
+.reveal { transition: opacity .9s var(--ease), translate .9s var(--ease); transition-delay: calc(var(--i, 0) * 90ms); }
+.reveal.pre { opacity: .12; translate: 0 32px; }
+
+main, footer { transition: opacity .22s ease, filter .22s ease; }
+body.switching main, body.switching footer { opacity: 0; filter: blur(2px); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .curtain { display: none; }
+  .reveal.pre, .card.pre .main { opacity: 1; translate: none; }
+  .shape.pre { scale: 1; }
+  .principle.pre::after { transform: none; }
+  .photo-wrap.pre .photo img { scale: 1; }
+  .card { transform: none !important; filter: none !important; }
+}
+</style>
+<style>img { max-width: 100%; } [hidden] { display: none !important; }</style>
+</head>
+<body class="en">
+<!-- Official Lega.work logo: mark and wordmark as reusable symbols -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mark" viewBox="0 0 370 493"><rect x="22.6699" y="125.974" width="120.179" height="346.117" rx="60.0897" fill="currentColor" fill-opacity=".14"/><rect x="346.188" y="366.674" width="120.179" height="346.117" rx="60.0897" transform="rotate(-179.474 346.188 366.674)" fill="currentColor" fill-opacity=".14"/><rect x="309.08" y="224.384" width="125.639" height="346.117" rx="62.8193" transform="rotate(63.2518 309.08 224.384)" fill="currentColor" fill-opacity=".14"/><rect x="58.293" y="260.746" width="120.179" height="346.117" rx="60.0897" transform="rotate(-116.223 58.293 260.746)" fill="currentColor" fill-opacity=".14"/><path d="M80.5371 121.74C114.952 121.74 142.85 149.638 142.851 184.053V218.313L111.07 233.966C80.1972 249.173 42.8423 236.473 27.6357 205.6C19.1977 188.469 19.3522 169.341 26.4365 153.11C37.1802 134.367 57.3842 121.74 80.5371 121.74Z" fill="#55C8C8"/><path d="M290.881 366.674C255.061 366.674 226.023 337.636 226.023 301.816V266.162L259.104 249.867C291.238 234.04 330.118 247.259 345.945 279.393C354.721 297.21 354.567 317.102 347.209 333.988C336.032 353.516 314.993 366.674 290.881 366.674Z" fill="#C466FB"/><path d="M142.86 417.566C142.86 432.73 137.545 446.651 128.677 457.572L106.323 468.838C75.0014 484.624 36.8126 472.03 21.0264 440.708C19.7153 438.107 18.6009 435.458 17.6758 432.779C16.4776 427.905 15.8418 422.81 15.8418 417.566V397.906C19.9331 380.14 31.6038 364.258 49.1562 355.412L142.86 308.184V417.566Z" fill="#FFD857"/><path d="M227.555 73.0107C227.555 49.8091 239.998 29.5147 258.573 18.4326L262.069 16.6699C293.391 0.883667 331.58 13.4772 347.366 44.7988C363.153 76.1208 350.558 114.31 319.236 130.097L227.555 176.304V73.0107Z" fill="#D3004D"/></symbol>
+  <symbol id="word" viewBox="416 186 920 120"><path d="M426.156 187.168C428.785 187.168 431.039 188.06 432.917 189.844C434.794 191.534 435.78 193.693 435.874 196.322V230.264C435.78 234.113 436.015 237.681 436.578 240.967C437.236 244.159 438.738 247.023 441.085 249.558C443.432 252.093 446.39 253.454 449.958 253.642H495.025C497.654 253.736 499.813 254.722 501.503 256.6C503.287 258.478 504.179 260.731 504.179 263.36C504.085 265.895 503.146 268.054 501.363 269.838C499.673 271.528 497.56 272.42 495.025 272.514H445.169C438.597 272.139 433.151 269.932 428.832 265.895C424.607 261.764 421.556 256.741 419.678 250.826C417.894 244.91 416.955 238.62 416.861 231.954V196.322C416.955 193.787 417.894 191.675 419.678 189.985C421.462 188.201 423.621 187.262 426.156 187.168Z" fill="currentColor"/><path d="M546.43 272.514C538.167 272.233 531.924 270.308 527.699 266.74C523.474 263.078 520.422 258.994 518.544 254.487C516.667 249.887 515.728 245.239 515.728 240.545C515.728 235.662 516.62 230.968 518.404 226.461C520.281 221.86 523.333 217.776 527.558 214.208C531.877 210.547 537.322 208.669 543.895 208.575H597.412C600.041 208.575 602.248 209.467 604.031 211.251C605.909 212.941 606.848 215.006 606.848 217.448C606.848 219.983 605.909 222.142 604.031 223.926C602.248 225.616 600.041 226.461 597.412 226.461H544.74C542.674 226.461 540.843 227.165 539.247 228.574C537.745 229.982 536.618 231.813 535.867 234.066C535.21 236.32 534.881 238.526 534.881 240.685C534.881 243.033 535.21 245.333 535.867 247.586C536.618 249.84 537.745 251.671 539.247 253.079C540.843 254.393 542.674 255.098 544.74 255.191H597.412C600.041 255.191 602.248 256.036 604.031 257.726C605.909 259.417 606.848 261.435 606.848 263.782C606.848 266.224 605.909 268.289 604.031 269.979C602.248 271.669 600.041 272.514 597.412 272.514H546.43ZM605.158 240.263C605.158 242.047 604.36 243.596 602.764 244.91C601.356 246.131 599.572 246.741 597.412 246.741H551.359C549.2 246.741 547.369 246.131 545.867 244.91C544.364 243.596 543.613 242.047 543.613 240.263C543.613 238.573 544.364 237.071 545.867 235.756C547.369 234.536 549.2 233.925 551.359 233.925H597.412C599.572 233.925 601.403 234.583 602.905 235.897C604.407 237.118 605.158 238.573 605.158 240.263Z" fill="currentColor"/><path d="M702.053 231.109C702.053 228.761 700.832 227.541 698.391 227.447H649.099C647.315 227.541 645.766 228.339 644.451 229.841C643.137 231.249 642.151 232.939 641.494 234.911C640.93 236.789 640.649 238.714 640.649 240.685C640.649 242.563 640.93 244.488 641.494 246.46C642.151 248.337 643.137 250.027 644.451 251.53C645.766 252.938 647.315 253.642 649.099 253.642H685.153C687.782 253.642 689.988 254.581 691.772 256.459C693.65 258.243 694.589 260.449 694.589 263.078C694.589 265.707 693.65 267.914 691.772 269.697C689.988 271.575 687.782 272.514 685.153 272.514H649.662C643.09 272.42 637.644 270.589 633.325 267.022C629.1 263.36 626.049 259.276 624.171 254.769C622.387 250.168 621.495 245.427 621.495 240.545C621.495 235.85 622.434 231.249 624.312 226.743C626.19 222.142 629.241 218.058 633.466 214.49C637.691 210.828 643.935 208.857 652.197 208.575H711.348C713.977 208.575 716.23 209.467 718.108 211.251C719.986 212.941 720.972 215.1 721.066 217.729V262.233C721.066 269.744 720.033 276.833 717.967 283.499C716.089 289.414 712.991 294.391 708.672 298.428C704.447 302.559 699.048 304.812 692.476 305.188H643.747C641.212 305.094 639.053 304.155 637.269 302.371C635.579 300.681 634.687 298.569 634.593 296.034C634.593 293.405 635.438 291.151 637.128 289.274C638.912 287.396 641.118 286.41 643.747 286.316H687.688C691.256 286.128 694.213 284.767 696.56 282.232C698.908 279.697 700.41 276.739 701.067 273.359C701.724 269.979 702.053 265.613 702.053 260.262V231.109Z" fill="currentColor"/><path d="M818.805 265.05V231.109C818.805 228.761 817.585 227.541 815.144 227.447H765.851C764.067 227.541 762.518 228.339 761.204 229.841C759.889 231.249 758.903 232.939 758.246 234.911C757.683 236.789 757.401 238.714 757.401 240.685C757.401 242.563 757.683 244.488 758.246 246.46C758.903 248.337 759.889 250.027 761.204 251.53C762.518 252.938 764.067 253.642 765.851 253.642H801.905C804.534 253.642 806.741 254.581 808.524 256.459C810.402 258.243 811.341 260.449 811.341 263.078C811.341 265.707 810.402 267.914 808.524 269.697C806.741 271.575 804.534 272.514 801.905 272.514H766.415C759.842 272.42 754.397 270.589 750.078 267.022C745.853 263.36 742.801 259.276 740.923 254.769C739.14 250.168 738.248 245.427 738.248 240.545C738.248 235.85 739.186 231.249 741.064 226.743C742.942 222.142 745.993 218.058 750.219 214.49C754.444 210.828 760.687 208.857 768.95 208.575H828.101C830.729 208.575 832.983 209.467 834.861 211.251C836.738 212.941 837.724 215.1 837.818 217.729V265.05C837.818 267.679 836.832 269.885 834.861 271.669C832.983 273.359 830.729 274.204 828.101 274.204C822.467 273.735 819.369 270.683 818.805 265.05Z" fill="currentColor"/><path d="M870.492 274.768C866.736 274.768 863.591 273.453 861.056 270.824C858.615 268.195 857.394 264.909 857.394 260.966C857.394 257.022 858.615 253.736 861.056 251.107C863.591 248.478 866.736 247.164 870.492 247.164C874.248 247.164 877.393 248.478 879.928 251.107C882.463 253.736 883.73 257.022 883.73 260.966C883.73 264.909 882.463 268.195 879.928 270.824C877.393 273.453 874.248 274.768 870.492 274.768Z" fill="currentColor"/><path d="M932.6 275.753C929.408 275.753 926.216 275.19 923.024 274.063C919.925 272.937 916.921 271.294 914.01 269.134C911.1 266.881 908.564 263.923 906.405 260.262C904.245 256.6 903.072 252.234 902.884 247.164V196.322C902.884 193.693 903.823 191.534 905.701 189.844C907.672 188.06 909.973 187.168 912.602 187.168C918.235 187.637 921.287 190.689 921.756 196.322V246.037C921.85 248.291 922.319 250.215 923.164 251.811C924.009 253.314 924.948 254.534 925.981 255.473C927.014 256.318 928.047 256.975 929.079 257.445C930.206 257.82 931.333 258.008 932.46 258.008C933.586 258.008 934.713 257.82 935.84 257.445C936.966 256.975 938.046 256.318 939.079 255.473C940.112 254.534 941.05 253.314 941.896 251.811C942.741 250.215 943.163 248.291 943.163 246.037V196.322C943.163 193.693 944.102 191.534 945.98 189.844C947.951 188.06 950.252 187.168 952.881 187.168C958.514 187.637 961.612 190.689 962.176 196.322V246.037C962.27 248.291 962.739 250.168 963.584 251.671C964.429 253.267 965.368 254.534 966.401 255.473C967.434 256.318 968.466 256.975 969.499 257.445C970.626 257.82 971.753 258.008 972.879 258.008C974.006 258.008 975.133 257.82 976.259 257.445C977.386 256.975 978.466 256.318 979.499 255.473C980.531 254.534 981.47 253.314 982.315 251.811C983.16 250.215 983.583 248.291 983.583 246.037V196.322C983.583 193.693 984.522 191.534 986.399 189.844C988.371 188.06 990.672 187.168 993.3 187.168C998.934 187.637 1002.03 190.689 1002.6 196.322V247.164C1002.6 252.234 1001.47 256.6 999.215 260.262C997.056 263.923 994.521 266.881 991.61 269.134C988.794 271.294 985.789 272.937 982.597 274.063C979.499 275.19 976.306 275.753 973.02 275.753C969.828 275.753 966.636 275.19 963.443 274.063C960.345 272.937 957.34 271.247 954.43 268.993C953.866 268.618 953.35 268.195 952.881 267.726C952.317 268.195 951.801 268.618 951.331 268.993C948.421 271.247 945.369 272.937 942.177 274.063C939.079 275.19 935.886 275.753 932.6 275.753Z" fill="currentColor"/><path d="M1050.2 272.514C1041.94 272.233 1035.69 270.308 1031.47 266.74C1027.24 263.078 1024.19 258.994 1022.31 254.487C1020.43 249.887 1019.5 245.239 1019.5 240.545C1019.5 235.662 1020.39 230.968 1022.17 226.461C1024.05 221.86 1027.1 217.776 1031.33 214.208C1035.64 210.547 1041.09 208.669 1047.66 208.575H1093.29C1099.87 208.669 1105.26 210.547 1109.49 214.208C1113.81 217.776 1116.86 221.86 1118.64 226.461C1120.52 230.968 1121.46 235.662 1121.46 240.545C1121.46 245.239 1120.52 249.887 1118.64 254.487C1116.77 258.994 1113.71 263.078 1109.49 266.74C1105.26 270.308 1099.02 272.233 1090.76 272.514H1050.2ZM1047.1 227.447C1045.32 227.447 1043.77 228.198 1042.45 229.7C1041.14 231.109 1040.15 232.799 1039.49 234.77C1038.93 236.648 1038.65 238.526 1038.65 240.404C1038.65 242.375 1038.93 244.347 1039.49 246.319C1040.15 248.197 1041.14 249.887 1042.45 251.389C1043.77 252.797 1045.32 253.548 1047.1 253.642H1093.86C1095.64 253.548 1097.19 252.797 1098.5 251.389C1099.82 249.887 1100.76 248.197 1101.32 246.319C1101.98 244.347 1102.31 242.375 1102.31 240.404C1102.31 238.526 1101.98 236.648 1101.32 234.77C1100.76 232.799 1099.82 231.109 1098.5 229.7C1097.19 228.198 1095.64 227.447 1093.86 227.447H1047.1Z" fill="currentColor"/><path d="M1140.61 226.32C1142.4 221.813 1145.4 217.776 1149.63 214.208C1153.95 210.547 1159.39 208.669 1165.96 208.575H1218.92C1221.55 208.575 1223.75 209.514 1225.54 211.392C1227.42 213.176 1228.35 215.382 1228.35 218.011C1228.35 220.64 1227.42 222.893 1225.54 224.771C1223.75 226.555 1221.55 227.447 1218.92 227.447H1165.4C1163.62 227.447 1162.07 228.198 1160.75 229.7C1159.44 231.109 1158.41 232.799 1157.66 234.77C1157 236.742 1156.67 238.62 1156.67 240.404V265.05C1156.11 270.683 1153.01 273.735 1147.37 274.204C1144.75 274.204 1142.44 273.359 1140.47 271.669C1138.6 269.885 1137.66 267.679 1137.66 265.05V240.545H1137.8C1137.8 235.662 1138.74 230.921 1140.61 226.32Z" fill="currentColor"/><path d="M1252.01 187.168C1254.55 187.262 1256.71 188.201 1258.49 189.985C1260.28 191.675 1261.22 193.787 1261.31 196.322V265.332C1260.75 270.965 1257.65 274.016 1252.01 274.486C1249.39 274.486 1247.09 273.641 1245.11 271.951C1243.24 270.167 1242.3 267.961 1242.3 265.332V196.322C1242.39 193.693 1243.38 191.534 1245.25 189.844C1247.13 188.06 1249.39 187.168 1252.01 187.168ZM1269.9 226.461C1272.62 222.048 1277.83 218.809 1285.53 216.743L1321.73 207.026C1324.26 206.275 1326.66 206.509 1328.91 207.73C1331.26 208.857 1332.81 210.687 1333.56 213.223C1334.4 215.664 1334.22 218.058 1333 220.405C1331.87 222.658 1330.04 224.208 1327.5 225.053L1288.91 235.052C1286.19 236.085 1284.88 237.869 1284.97 240.404C1284.88 242.939 1286.19 244.723 1288.91 245.755L1327.5 255.755C1330.04 256.6 1331.87 258.196 1333 260.543C1334.22 262.797 1334.4 265.144 1333.56 267.585C1332.81 270.12 1331.26 271.951 1328.91 273.078C1326.66 274.298 1324.26 274.533 1321.73 273.782L1285.53 264.064C1277.74 261.905 1272.48 258.618 1269.76 254.206C1267.13 249.793 1265.82 245.192 1265.82 240.404C1265.82 235.615 1267.18 230.968 1269.9 226.461Z" fill="currentColor"/></symbol>
+</svg>
+<div class="curtain" aria-hidden="true"><div class="logo"><svg class="mk"><use href="#mark"/></svg><svg class="wd"><use href="#word"/></svg></div></div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Legawork"><svg class="mk" aria-hidden="true"><use href="#mark"/></svg><svg class="wd" aria-hidden="true"><use href="#word"/></svg></a>
+    <nav class="main" aria-label="Main">
+      <a href="#about"><span class="en">About</span><span class="bg">За нас</span></a>
+      <a href="#mission"><span class="en">Mission</span><span class="bg">Мисия</span></a>
+      <a href="#services"><span class="en">Services</span><span class="bg">Услуги</span></a>
+      <a href="#team"><span class="en">Team</span><span class="bg">Екип</span></a>
+      <a href="#contact"><span class="en">Contact</span><span class="bg">Контакти</span></a>
+      <span class="ind" aria-hidden="true"></span>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" id="lang-en" aria-pressed="true" data-lang="en">EN</button>
+      <button type="button" id="lang-bg" aria-pressed="false" data-lang="bg">BG</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero band dark" data-sec>
+    <i class="shape ring c-teal hide-m" style="--x:-60px;--y:12%;--s:180px" data-speed="-.18" data-rot="40"></i>
+    <i class="shape circle c-yellow" style="--x:46%;--y:84%;--s:22px" data-speed=".5"></i>
+    <div class="wrap">
+        <div class="stage-wrap" aria-hidden="true">
+          <div class="stage" id="stage">
+          <div class="layer"><svg viewBox="-20 -20 410 533"><g class="kin"><g class="in" style="--d:1.2s;--fx:0px;--fy:80px;--fr:0deg"><rect x="22.6699" y="125.974" width="120.179" height="346.117" rx="60.0897" fill="white" fill-opacity="0.12"/></g></g></svg></div>
+          <div class="layer"><svg viewBox="-20 -20 410 533"><g class="kin"><g class="in" style="--d:1.25s;--fx:0px;--fy:-80px;--fr:0deg"><rect x="346.188" y="366.674" width="120.179" height="346.117" rx="60.0897" transform="rotate(-179.474 346.188 366.674)" fill="white" fill-opacity="0.12"/></g></g></svg></div>
+          <div class="layer"><svg viewBox="-20 -20 410 533"><g class="kin"><g class="in" style="--d:1.3s;--fx:-60px;--fy:0px;--fr:20deg"><rect x="309.08" y="224.384" width="125.639" height="346.117" rx="62.8193" transform="rotate(63.2518 309.08 224.384)" fill="white" fill-opacity="0.12"/></g></g></svg></div>
+          <div class="layer"><svg viewBox="-20 -20 410 533"><g class="kin"><g class="in" style="--d:1.35s;--fx:60px;--fy:0px;--fr:-20deg"><rect x="58.293" y="260.746" width="120.179" height="346.117" rx="60.0897" transform="rotate(-116.223 58.293 260.746)" fill="white" fill-opacity="0.12"/></g></g></svg></div>
+          <div class="layer c"><svg viewBox="-20 -20 410 533"><g class="kin"><g class="in" style="--d:1.45s;--fx:-160px;--fy:-120px;--fr:-90deg"><path d="M80.5371 121.74C114.952 121.74 142.85 149.638 142.851 184.053V218.313L111.07 233.966C80.1972 249.173 42.8423 236.473 27.6357 205.6C19.1977 188.469 19.3522 169.341 26.4365 153.11C37.1802 134.367 57.3842 121.74 80.5371 121.74Z" fill="#55C8C8"/></g></g></svg></div>
+          <div class="layer c"><svg viewBox="-20 -20 410 533"><g class="kin"><g class="in" style="--d:1.55s;--fx:170px;--fy:120px;--fr:90deg"><path d="M290.881 366.674C255.061 366.674 226.023 337.636 226.023 301.816V266.162L259.104 249.867C291.238 234.04 330.118 247.259 345.945 279.393C354.721 297.21 354.567 317.102 347.209 333.988C336.032 353.516 314.993 366.674 290.881 366.674Z" fill="#C466FB"/></g></g></svg></div>
+          <div class="layer c"><svg viewBox="-20 -20 410 533"><g class="kin"><g class="in" style="--d:1.65s;--fx:-160px;--fy:160px;--fr:-120deg"><path d="M142.86 417.566C142.86 432.73 137.545 446.651 128.677 457.572L106.323 468.838C75.0014 484.624 36.8126 472.03 21.0264 440.708C19.7153 438.107 18.6009 435.458 17.6758 432.779C16.4776 427.905 15.8418 422.81 15.8418 417.566V397.906C19.9331 380.14 31.6038 364.258 49.1562 355.412L142.86 308.184V417.566Z" fill="#FFD857"/></g></g></svg></div>
+          <div class="layer c"><svg viewBox="-20 -20 410 533"><g class="kin"><g class="in" style="--d:1.75s;--fx:170px;--fy:-150px;--fr:120deg"><path d="M227.555 73.0107C227.555 49.8091 239.998 29.5147 258.573 18.4326L262.069 16.6699C293.391 0.883667 331.58 13.4772 347.366 44.7988C363.153 76.1208 350.558 114.31 319.236 130.097L227.555 176.304V73.0107Z" fill="#D3004D"/></g></g></svg></div>
+          </div>
+        </div>
+      <div>
+        <p class="label"><span class="en">Legawork Law Office · Sofia</span><span class="bg">Адвокатска кантора Legawork · София</span></p>
+        <h1 style="margin-top:18px">
+          <span class="en"><span class="ln"><span>We win cases.</span></span><span class="ln"><em>And, where we can, avoid them.</em></span></span>
+          <span class="bg"><span class="ln"><span>Печелим дела.</span></span><span class="ln"><em>А когато можем, ги избягваме.</em></span></span>
+        </h1>
+        <p class="lede">
+          <span class="en">Legawork Law Office was founded by attorney Gergana Staneva, together with a team of highly qualified associate partners. We always take an individual approach, tailored to the needs of each client.</span>
+          <span class="bg">Адвокатска кантора Legawork е основана от адв. Гергана Станева, която обединява около себе си екип от висококвалифицирани асоциирани партньори. Винаги се стремим да използваме индивидуален подход, съобразен с нуждите на клиентите си.</span>
+        </p>
+        <div class="ctas">
+          <a class="btn yellow" href="#contact"><span class="en">Get in touch</span><span class="bg">Свържете се с нас</span> <span class="arr">→</span></a>
+          <a class="btn line" href="#services"><span class="en">Our services</span><span class="bg">Нашите услуги</span></a>
+        </div>
+        <ul class="facts">
+          <li><span><span class="en">Founder</span><span class="bg">Основател</span></span><span><span class="en">Gergana Staneva</span><span class="bg">адв. Гергана Станева</span></span></li>
+          <li><span><span class="en">Experience</span><span class="bg">Опит</span></span><span><span class="en">15+ years in banking cases</span><span class="bg">15+ години в банкови дела</span></span></li>
+          <li><span><span class="en">Languages</span><span class="bg">Езици</span></span><span><span class="en">English, French</span><span class="bg">английски, френски</span></span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="track" id="track">
+      <span class="en">Commercial law &amp; insolvency</span><span class="en">Property &amp; real estate</span><span class="en">Banking &amp; insurance law</span><span class="en">Tax law</span><span class="en">Anti-discrimination</span><span class="en">Civil law</span><span class="en">Administrative law</span><span class="en">Competition law</span>
+      <span class="bg">Търговско право и несъстоятелност</span><span class="bg">Вещно право и недвижими имоти</span><span class="bg">Банково и застрахователно право</span><span class="bg">Данъчно право</span><span class="bg">Защита срещу дискриминация</span><span class="bg">Гражданско право</span><span class="bg">Административно право</span><span class="bg">Конкурентно право</span>
+    </div>
+  </div>
+
+  <section class="band light" id="about" data-sec>
+    <i class="shape circle c-teal" style="--x:calc(100% - 120px);--y:70px;--s:84px;--d:.05s" data-speed="-.25"></i>
+    <i class="shape drop-b c-red" style="--x:calc(100% - 64px);--y:190px;--s:40px;--d:.2s" data-speed=".2" data-rot="60"></i>
+    <i class="shape drop-a c-yellow hide-m" style="--x:30px;--y:calc(100% - 120px);--s:56px;--d:.1s" data-speed="-.3" data-rot="-80"></i>
+    <i class="shape ring c-violet hide-m" style="--x:42%;--y:calc(100% - 70px);--s:120px;--d:.3s" data-speed=".15"></i>
+    <div class="wrap">
+      <div class="side">
+        <span class="label"><span class="en">About us</span><span class="bg">За нас</span></span>
+        <h2><span class="en">Law as a creative profession</span><span class="bg">Правото като творческа професия</span></h2>
+      </div>
+      <div class="body">
+        <div class="prose">
+          <p class="lead"><span class="en">Legawork Law Office was founded by attorney Gergana Staneva, who has brought together a team of highly qualified associate partners. What sets us apart is that we always strive for an individual approach, tailored to the needs of our clients.</span><span class="bg">Адвокатска кантора Legawork е основана от адв. Гергана Станева, която обединява около себе си екип от висококвалифицирани асоциирани партньори. Заедно се отличаваме с това, че винаги се стремим да използваме индивидуален подход, съобразен с нуждите на клиентите си.</span></p>
+          <p><span class="en">For us, the legal profession is above all a creative one. That is why we offer effective, modern methods of resolving disputes that take into account both the facts of the case and the legal options for achieving our clients’ goals. Our experience in litigation, together with an innate sense of justice, helps us stay flexible in finding unconventional solutions to protect our clients’ rights and legitimate interests in the dynamic environment around us.</span><span class="bg">За нас адвокатската професия е преди всичко творческа, поради което предлагаме ефективни и модерни методи за решаване на споровете, които отчитат както фактическата обстановка, така и правните възможности за постигане на целите на клиентите ни. Натрупаният юридически опит в процесуалното представителство, заедно с вроденото ни чувство за справедливост, ни помагат да бъдем гъвкави в намирането на нестандартни решения за защита на правата и законните интереси на клиентите ни в динамичната среда, която ни заобикаля.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band dark" id="mission" data-sec>
+    <i class="shape pill c-violet hide-m" style="--x:-20px;--y:20%;--s:60px" data-speed="-.2" data-rot="25"></i>
+    <i class="shape circle c-red" style="--x:calc(100% - 70px);--y:60px;--s:36px;--d:.15s" data-speed=".35"></i>
+    <i class="shape drop-a c-teal hide-m" style="--x:calc(100% - 150px);--y:calc(100% - 140px);--s:70px;--d:.25s" data-speed="-.2" data-rot="90"></i>
+    <div class="wrap">
+      <div class="side">
+        <span class="label"><span class="en">Mission</span><span class="bg">Мисия</span></span>
+        <h2><span class="en">Why we do it this way</span><span class="bg">Защо работим така</span></h2>
+      </div>
+      <div class="body">
+        <div class="fan" id="fan">
+          <div class="back y"></div>
+          <div class="back r"></div>
+          <div class="front"><p><span class="en">At Legawork we believe a good lawyer is not only one who wins cases in court, but also one who, in the right circumstances, spares the client a trial altogether.</span><span class="bg">В Legawork вярваме, че добрият адвокат не е само този, който умее успешно да води дела, но и този, който при определени обстоятелства успява да избегне съдебния процес в защита на клиентите си.</span></p></div>
+        </div>
+        <div class="principles">
+          <div class="principle">
+            <span class="dot circle c-teal" aria-hidden="true"></span>
+            <h3><span class="en">Agreement first</span><span class="bg">Първо споразумение</span></h3>
+            <p><span class="en">Our main priority is reaching settlements and agreements between the parties that bring mutual satisfaction and fully protect the client’s long-term interests.</span><span class="bg">Наш основен приоритет е постигането на споразумения и договори между страните, които гарантират взаимно удовлетворение и пълна защита на дългосрочните интереси на клиента.</span></p>
+          </div>
+          <div class="principle">
+            <span class="dot drop-b c-red" aria-hidden="true"></span>
+            <h3><span class="en">Confidential and fast</span><span class="bg">Конфиденциалност и бърза реакция</span></h3>
+            <p><span class="en">Our relationships rest on uncompromising confidentiality and a quick response when situations move fast, giving you peace of mind and security at every moment.</span><span class="bg">Основа на нашите взаимоотношения са безкомпромисната конфиденциалност и бързата реакция в динамични ситуации, осигуряващи спокойствие и сигурност във всеки един момент.</span></p>
+          </div>
+          <div class="principle">
+            <span class="dot drop-a c-yellow" aria-hidden="true"></span>
+            <h3><span class="en">Focused on you</span><span class="bg">Фокус върху клиента</span></h3>
+            <p><span class="en">We look for difficult, flexible solutions in complex situations, with our focus kept entirely on our clients’ interests.</span><span class="bg">Търсим трудните и гъвкави решения в сложни ситуации, като целият ни фокус остава насочен изключително към интересите на клиентите ни.</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band light" id="services" data-sec>
+    <i class="shape ring c-teal hide-m" style="--x:-50px;--y:34%;--s:150px" data-speed="-.12"></i>
+    <i class="shape circle c-violet hide-m" style="--x:60px;--y:62%;--s:30px;--d:.2s" data-speed=".3"></i>
+    <i class="shape drop-b c-yellow hide-m" style="--x:90px;--y:82%;--s:48px;--d:.1s" data-speed="-.25" data-rot="70"></i>
+    <div class="wrap">
+      <div class="side">
+        <span class="label"><span class="en">Services</span><span class="bg">Услуги</span></span>
+        <h2><span class="en">Areas of practice</span><span class="bg">Сфери на дейност</span></h2>
+      </div>
+      <div class="body">
+        <p class="intro"><span class="en">We provide competent legal services in the following areas:</span><span class="bg">Предоставяме компетентни юридически услуги в следните сфери на дейност:</span></p>
+        <ol class="stack" id="stack">
+          <li class="card k-teal" style="--n:0"><div class="main"><span class="pos">01 / 08</span><h3><span class="en">Commercial law &amp; insolvency</span><span class="bg">Търговско право и несъстоятелност</span></h3></div><span class="glyph circle" aria-hidden="true"></span></li>
+          <li class="card k-red" style="--n:1"><div class="main"><span class="pos">02 / 08</span><h3><span class="en">Property law &amp; real estate</span><span class="bg">Вещно право и недвижими имоти</span></h3></div><span class="glyph drop-a" aria-hidden="true"></span></li>
+          <li class="card k-yellow" style="--n:2"><div class="main"><span class="pos">03 / 08</span><h3><span class="en">Banking law. Insurance law</span><span class="bg">Банково право. Застрахователно право</span></h3><p><span class="en">Defending borrowers against unlawful enforcement and unfair contract terms, based on EU law and the case law of the Court of Justice of the EU.</span><span class="bg">Защита на кредитополучатели срещу незаконосъобразни принудителни изпълнения и неравноправни клаузи, въз основа на правото на ЕС и практиката на СЕС.</span></p></div><span class="glyph drop-b" aria-hidden="true"></span></li>
+          <li class="card k-violet" style="--n:3"><div class="main"><span class="pos">04 / 08</span><h3><span class="en">Tax law</span><span class="bg">Данъчно право</span></h3></div><span class="glyph circle" aria-hidden="true"></span></li>
+          <li class="card k-teal" style="--n:4"><div class="main"><span class="pos">05 / 08</span><h3><span class="en">Anti-discrimination proceedings</span><span class="bg">Производства за защита срещу дискриминация</span></h3><p><span class="en">Representation in proceedings before the Commission for Protection against Discrimination.</span><span class="bg">Процесуално представителство по производства пред Комисията за защита от дискриминация (КЗД).</span></p></div><span class="glyph drop-a" aria-hidden="true"></span></li>
+          <li class="card k-red" style="--n:5"><div class="main"><span class="pos">06 / 08</span><h3><span class="en">Civil law</span><span class="bg">Гражданско право</span></h3></div><span class="glyph drop-b" aria-hidden="true"></span></li>
+          <li class="card k-yellow" style="--n:6"><div class="main"><span class="pos">07 / 08</span><h3><span class="en">Administrative law &amp; proceedings</span><span class="bg">Административно право и процес</span></h3><p><span class="en">Challenging administrative acts in proceedings before administrative authorities.</span><span class="bg">Оспорване на административни актове в производства пред административни органи.</span></p></div><span class="glyph circle" aria-hidden="true"></span></li>
+          <li class="card k-violet" style="--n:7"><div class="main"><span class="pos">08 / 08</span><h3><span class="en">Competition law</span><span class="bg">Конкурентно право</span></h3><p><span class="en">Representation in proceedings before the Commission on Protection of Competition.</span><span class="bg">Процесуално представителство по производства пред Комисията за защита на конкуренцията (КЗК).</span></p></div><span class="glyph drop-a" aria-hidden="true"></span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="band dark" id="team" data-sec>
+    <i class="shape ring c-yellow hide-m" style="--x:calc(100% - 100px);--y:8%;--s:160px" data-speed="-.15" data-rot="30"></i>
+    <i class="shape circle c-teal" style="--x:20px;--y:calc(100% - 90px);--s:26px;--d:.2s" data-speed=".3"></i>
+    <div class="wrap">
+      <div class="side">
+        <span class="label"><span class="en">Team</span><span class="bg">Екип</span></span>
+        <h2><span class="en">The people behind Legawork</span><span class="bg">Хората зад Legawork</span></h2>
+      </div>
+      <div class="body">
+        <div class="founder">
+          <div class="photo-wrap">
+            <figure class="photo"><img src="assets/img/gergana-staneva.jpg" loading="lazy" alt="Gergana Staneva" width="800" height="1000"></figure>
+            <span class="tag"><span class="en">Founder</span><span class="bg">Основател</span></span>
+            <span class="s1" aria-hidden="true"></span>
+            <span class="s2" aria-hidden="true"></span>
+          </div>
+          <div class="person">
+            <span class="role"><span class="en">Attorney · Founder</span><span class="bg">Адвокат · Основател</span></span>
+            <h3><span class="en">Gergana Staneva</span><span class="bg">адв. Гергана Станева</span></h3>
+            <ul class="highlights">
+              <li><span class="en">15+ years in banking cases</span><span class="bg">15+ години в банкови дела</span></li>
+              <li><span class="en">EU consumer &amp; mortgage lending law</span><span class="bg">Право на ЕС в потребителското и ипотечното кредитиране</span></li>
+              <li><span class="en">English · French</span><span class="bg">английски · френски</span></li>
+            </ul>
+            <div class="prose">
+              <p class="lead"><span class="en">Gergana Staneva has more than 15 years of specialised legal experience in banking cases. A significant part of her career was spent representing leading banking institutions in complex cases concerning the collection of non-performing loans, proceedings challenging the validity of collateral, and the enforcement of registered pledges under the Registered Pledges Act.</span><span class="bg">Притежава повече от 15 години специализиран правен опит в банкови дела. Значителна част от професионалния ѝ път е преминала в представителство на водещи банкови институции по сложни казуси, свързани със събиране на вземания по необслужвани кредити, производства по оспорване валидността на обезпечения и реализиране на особени залози по реда на ЗОЗ.</span></p>
+              <p><span class="en">Knowing the internal mechanisms, approaches and strategies of financial institutions in detail, she now applies this specific knowledge to the comprehensive defence of borrowers, both individuals and corporate clients.</span><span class="bg">Познавайки в детайли вътрешните механизми, подходи и стратегии на финансовите институции, днес тя успешно прилага това специфично знание в комплексната защита на кредитополучатели – както физически лица, така и корпоративни клиенти.</span></p>
+              <p><span class="en">She has in-depth expertise in protecting borrowers against unlawful enforcement and orders for payment. A key focus of her practice is applying the latest EU regulations and directives on consumer and mortgage lending and on protection against unfair contract terms. Following the evolving case law of the Court of Justice of the European Union (CJEU), she identifies hidden risks, unjustified fees and flaws in the methods used to set interest rates, securing effective judicial protection for clients on the basis of EU law.</span><span class="bg">Притежава задълбочена експертиза в комплексната защита на кредитополучатели срещу незаконосъобразни принудителни изпълнения и заповеди за изпълнение. Ключов фокус в практиката ѝ е прилагането на последните регламенти и директиви на Европейския съюз в областта на потребителското и ипотечното кредитиране и защитата срещу неравноправни клаузи в договорите. В съответствие с актуалната и динамична практика на Съда на Европейския съюз (СЕС), тя успешно идентифицира скрити рискове, неоснователни такси и нарушения в методиките за определяне на лихвите, осигурявайки ефективна съдебна защита на клиентите въз основа на правото на ЕС.</span></p>
+              <p><span class="en">Her experience also covers proceedings before administrative authorities to challenge administrative acts, and representation in proceedings before the Commission for Protection against Discrimination (CPD) and the Commission on Protection of Competition (CPC).</span><span class="bg">Опитът ѝ обхваща още производства пред административни органи за оспорване на административни актове, както и процесуално представителство по искови производства пред Комисията за защита от дискриминация (КЗД) и Комисията за защита на конкуренцията (КЗК).</span></p>
+              <p><span class="en">Working languages: English and French.</span><span class="bg">Работни езици: английски и френски.</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="founder partner">
+          <div class="photo-wrap alt">
+            <figure class="photo"><img src="assets/img/mariyana-yankova.jpg" loading="lazy" alt="Mariyana Yankova" width="300" height="400"></figure>
+            <span class="tag"><span class="en">Partner</span><span class="bg">Съдружник</span></span>
+            <span class="s1" aria-hidden="true"></span>
+            <span class="s2" aria-hidden="true"></span>
+          </div>
+          <div class="person">
+            <span class="role"><span class="en">Attorney · Partner</span><span class="bg">Адвокат · Съдружник</span></span>
+            <h3><span class="en">Mariyana Yankova</span><span class="bg">адв. Марияна Янкова</span></h3>
+            <ul class="highlights">
+              <li><span class="en">Sofia Bar Association</span><span class="bg">Софийска адвокатска колегия</span></li>
+              <li><span class="en">LL.M. in European Union law</span><span class="bg">Магистър по право на ЕС</span></li>
+              <li><span class="en">English · German</span><span class="bg">английски · немски</span></li>
+            </ul>
+            <div class="prose">
+              <p class="lead"><span class="en">Represents clients before courts of all instances and before administrative and tax authorities. Her work covers commercial, contract, property, administrative and tax law, public procurement and more.</span><span class="bg">Процесуално представителство пред всички съдебни инстанции и административни и данъчни органи; работа в областта на търговското, облигационното, вещно, административно, данъчно право, обществени поръчки и др.</span></p>
+              <p><span class="en">She supports all of the firm’s activities: drafting statements of claim and legal opinions and preparing every document needed to represent clients in court. She also advises on commercial transactions, drafts contracts and prepares legal analyses of cases in all areas of civil law.</span><span class="bg">Подпомагане във всички дейности на дружеството; изготвяне на искови молби и становища и подготовка на всички необходими документи по процесуалното представителство на клиентите; консултации по търговски сделки, изготвяне на договори и правни анализи по казуси във всички области на гражданското право.</span></p>
+            </div>
+            <div class="cv">
+              <div>
+                <span class="label"><span class="en">Experience</span><span class="bg">Професионален опит</span></span>
+                <ol class="timeline">
+                  <li><time>2011 –</time><span><span class="en">Partner, Vladikin, Slavov &amp; Partners Law Firm</span><span class="bg">Адвокат-съдружник в „Адвокатско дружество Владикин, Славов и партньори“</span></span></li>
+                  <li><time>2010 – 11</time><span><span class="en">Junior attorney, Vladikin, Slavov, Avdzhiyski &amp; Partners Law Firm</span><span class="bg">Младши адвокат в „Адвокатско дружество Владикин, Славов, Авджийски и партньори“</span></span></li>
+                  <li><time>2008 – 10</time><span><span class="en">In-house legal adviser, Vladikin, Slavov, Avdzhiyski &amp; Partners Law Firm</span><span class="bg">Юрисконсулт в „Адвокатско дружество Владикин, Славов, Авджийски и партньори“</span></span></li>
+                  <li><time>2005 – 08</time><span><span class="en">Legal assistant, Vladikin, Slavov, Avdzhiyski &amp; Partners Law Firm</span><span class="bg">Сътрудник в „Адвокатско дружество Владикин, Славов, Авджийски и партньори“</span></span></li>
+                </ol>
+              </div>
+              <div>
+                <span class="label"><span class="en">Education</span><span class="bg">Образование</span></span>
+                <ol class="timeline">
+                  <li><time>2010 – 11</time><span><span class="en">Master of Laws, European Union Law, Faculty of Law, Sofia University “St. Kliment Ohridski”</span><span class="bg">Магистър по право, специалност „Право на Европейския съюз“, Юридически факултет, СУ „Св. Климент Охридски“</span></span></li>
+                  <li><time>2002 – 07</time><span><span class="en">Master of Laws, specialisation in Administration of Justice, Faculty of Law, Sofia University “St. Kliment Ohridski”</span><span class="bg">Магистър по право, специализация „Правораздаване“, Юридически факултет, СУ „Св. Климент Охридски“</span></span></li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band light" id="contact" data-sec>
+    <i class="shape drop-b c-teal" style="--x:calc(100% - 110px);--y:80px;--s:64px" data-speed="-.25" data-rot="-60"></i>
+    <i class="shape circle c-yellow hide-m" style="--x:40px;--y:calc(100% - 100px);--s:44px;--d:.15s" data-speed=".2"></i>
+    <i class="shape circle c-red hide-m" style="--x:110px;--y:calc(100% - 50px);--s:18px;--d:.3s" data-speed=".45"></i>
+    <div class="wrap">
+      <div class="side">
+        <span class="label"><span class="en">Contact</span><span class="bg">Контакти</span></span>
+        <h2><span class="en">Let’s talk</span><span class="bg">Свържете се с нас</span></h2>
+      </div>
+      <div class="body">
+        <div class="contact-grid">
+          <div class="details">
+            <div class="row"><span class="label"><span class="en">Address</span><span class="bg">Адрес</span></span><span class="val"><span class="en">4 Vasil Drumev St, Sofia</span><span class="bg">гр. София, ул. „Васил Друмев“ № 4</span></span></div>
+            <div class="row"><span class="label"><span class="en">Phone</span><span class="bg">Телефон</span></span><span class="val"><span id="phone">0884 781 807</span><button class="copy" type="button" data-copy="phone"><span class="en">Copy</span><span class="bg">Копирай</span></button></span></div>
+            <div class="row"><span class="label"><span class="en">E-mail</span><span class="bg">Имейл</span></span><span class="val"><span id="email">staneva8@gmail.com</span><button class="copy" type="button" data-copy="email"><span class="en">Copy</span><span class="bg">Копирай</span></button></span></div>
+          </div>
+          <form class="enquiry" id="enquiry" novalidate>
+            <div class="two">
+              <div class="field"><label for="f-name"><span class="en">Name</span><span class="bg">Име</span></label><input id="f-name" name="name" autocomplete="name" required></div>
+              <div class="field"><label for="f-email"><span class="en">E-mail</span><span class="bg">Имейл</span></label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+            </div>
+            <div class="field">
+              <label for="f-area"><span class="en">Area</span><span class="bg">Област</span></label>
+              <select id="f-area" name="area">
+                <option data-en="Commercial law &amp; insolvency" data-bg="Търговско право и несъстоятелност">Commercial law &amp; insolvency</option>
+                <option data-en="Property law &amp; real estate" data-bg="Вещно право и недвижими имоти">Property law &amp; real estate</option>
+                <option data-en="Banking &amp; insurance law" data-bg="Банково и застрахователно право">Banking &amp; insurance law</option>
+                <option data-en="Tax law" data-bg="Данъчно право">Tax law</option>
+                <option data-en="Anti-discrimination proceedings" data-bg="Защита срещу дискриминация">Anti-discrimination proceedings</option>
+                <option data-en="Civil law" data-bg="Гражданско право">Civil law</option>
+                <option data-en="Administrative law &amp; proceedings" data-bg="Административно право и процес">Administrative law &amp; proceedings</option>
+                <option data-en="Competition law" data-bg="Конкурентно право">Competition law</option>
+                <option data-en="Something else" data-bg="Друго">Something else</option>
+              </select>
+            </div>
+            <div class="field"><label for="f-msg"><span class="en">Briefly describe your situation</span><span class="bg">Опишете накратко ситуацията си</span></label><textarea id="f-msg" name="message" rows="5" required></textarea></div>
+            <label class="consent" for="f-consent"><input id="f-consent" type="checkbox" required><span><span class="en">I agree to the processing of my personal data for the purpose of answering this enquiry (GDPR).</span><span class="bg">Съгласен/на съм личните ми данни да бъдат обработени с цел отговор на запитването (GDPR).</span></span></label>
+            <div><button class="btn" type="submit"><span class="en">Send enquiry</span><span class="bg">Изпрати</span> <span class="arr">→</span></button></div>
+            <p class="status" id="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="band dark">
+  <div class="wrap">
+    <div><a class="logo" href="#top"><svg class="mk" aria-hidden="true"><use href="#mark"/></svg><svg class="wd" aria-hidden="true"><use href="#word"/></svg></a><span class="en">Law Office · Sofia</span><span class="bg">Адвокатска кантора · София</span><br>© 2026 Legawork</div>
+    <div class="mono"><span class="en">4 Vasil Drumev St<br>Sofia, Bulgaria</span><span class="bg">ул. „Васил Друмев“ № 4<br>гр. София</span></div>
+    <div class="mono">0884 781 807<br>staneva8@gmail.com</div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var msgs = {
+    en: { missing: "Please fill in your name, a valid e-mail, a short description and tick the consent box.", ok: "Thank you. This is a preview, so nothing was sent. On the live site your enquiry would reach the office here." },
+    bg: { missing: "Моля, попълнете име, валиден имейл, кратко описание и отбележете съгласието.", ok: "Благодарим ви. Това е демонстрация и нищо не беше изпратено. На истинския сайт запитването ще стигне до кантората." }
+  };
+  var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var lang = "en";
+  function setLang(l) {
+    lang = l;
+    document.body.className = l;
+    document.documentElement.lang = l;
+    document.querySelectorAll(".lang button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.lang === l)); });
+    document.querySelectorAll("option[data-en]").forEach(function (o) { o.textContent = o.dataset[l]; });
+    document.getElementById("status").textContent = "";
+    try { localStorage.setItem("lang", l); } catch (e) {}
+  }
+  document.querySelectorAll(".lang button").forEach(function (b) {
+    b.addEventListener("click", function () {
+      if (b.dataset.lang === lang) return;
+      if (reduce) { setLang(b.dataset.lang); placeInd(); return; }
+      document.body.classList.add("switching");
+      setTimeout(function () { setLang(b.dataset.lang); placeInd(); onScroll(); requestAnimationFrame(function () { document.body.classList.remove("switching"); }); }, 230);
+    });
+  });
+
+  var track = document.getElementById("track");
+  track.innerHTML += track.innerHTML;
+
+  document.querySelectorAll(".copy").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var el = document.getElementById(btn.dataset.copy);
+      var done = function () { var t = btn.innerHTML; btn.textContent = lang === "bg" ? "Копирано" : "Copied"; setTimeout(function () { btn.innerHTML = t; }, 1400); };
+      var fallback = function () { var r = document.createRange(); r.selectNodeContents(el); var s = getSelection(); s.removeAllRanges(); s.addRange(r); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(el.textContent).then(done, fallback); else fallback();
+    });
+  });
+
+  document.getElementById("enquiry").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var f = e.target, st = document.getElementById("status");
+    var ok = f["f-name"].value.trim() && /\S+@\S+\.\S+/.test(f["f-email"].value) && f["f-msg"].value.trim() && f["f-consent"].checked;
+    st.textContent = ok ? msgs[lang].ok : msgs[lang].missing;
+  });
+
+  /* Reveals: only items starting below the fold get the .pre state */
+  var groups = [".side", ".intro", ".prose > p", ".fan", ".principle", ".photo-wrap", ".person > .role", ".person > h3", ".highlights", ".cv > div", ".details .row", "form.enquiry", "footer .wrap > div"];
+  var items = [];
+  groups.forEach(function (sel) {
+    var seen = new Map();
+    document.querySelectorAll(sel).forEach(function (el) {
+      var n = seen.get(el.parentNode) || 0; seen.set(el.parentNode, n + 1);
+      if (!el.classList.contains("photo-wrap")) el.classList.add("reveal");
+      el.style.setProperty("--i", Math.min(n, 5)); items.push(el);
+    });
+  });
+  var cards = Array.prototype.slice.call(document.querySelectorAll(".card"));
+  var shapes = Array.prototype.slice.call(document.querySelectorAll(".shape"));
+  if (!reduce && "IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.remove("pre"); io.unobserve(en.target); } });
+    }, { rootMargin: "0px 0px -10% 0px" });
+    items.concat(cards, shapes).forEach(function (el) {
+      if (el.getBoundingClientRect().top > innerHeight) { el.classList.add("pre"); io.observe(el); }
+    });
+  }
+
+  /* Scroll-linked motion */
+  function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
+  function stickyTop(el) { return parseFloat(getComputedStyle(el).top) || 0; }
+  var fan = document.getElementById("fan");
+  var photos = Array.prototype.slice.call(document.querySelectorAll(".photo-wrap"));
+
+  function motion() {
+    var vh = innerHeight;
+    /* Floating shapes: parallax and rotation relative to the viewport centre */
+    shapes.forEach(function (el) {
+      var r = el.parentNode.getBoundingClientRect();
+      var off = (r.top + r.height / 2 - vh / 2);
+      var sp = parseFloat(el.dataset.speed || 0), rot = parseFloat(el.dataset.rot || 0);
+      el.style.transform = "translate3d(0," + (off * sp).toFixed(1) + "px,0) rotate(" + (rot * -off / vh).toFixed(1) + "deg)";
+    });
+    /* Mission cards fan out as they come into view */
+    var fr = fan.getBoundingClientRect();
+    fan.style.setProperty("--f", clamp((vh - fr.top) / (vh * .7), 0, 1).toFixed(3));
+    /* Photo parallax and orbiting shapes */
+    photos.forEach(function (ph, k) {
+      var tr = ph.getBoundingClientRect(), dir = k % 2 ? -1 : 1;
+      var tp = clamp((vh - tr.top) / (vh + tr.height), 0, 1);
+      ph.querySelector("img").style.setProperty("--py", (-tp * 13).toFixed(2) + "%");
+      ph.querySelector(".s1").style.transform = "translate(" + (Math.sin(tp * 6) * 14 * dir).toFixed(1) + "px," + (tp * 120 - 40).toFixed(1) + "px) rotate(" + (tp * 140 * dir).toFixed(1) + "deg)";
+      ph.querySelector(".s2").style.transform = "translateY(" + (-tp * 90 + 30).toFixed(1) + "px) rotate(" + (tp * 180 * dir).toFixed(1) + "deg)";
+    });
+    /* Stacking cards and their spinning glyphs */
+    var cover = cards.map(function (c, j) {
+      if (j === 0) return 0;
+      var r = c.getBoundingClientRect(), h = cards[j - 1].offsetHeight || 1;
+      return clamp(1 - (r.top - stickyTop(c)) / h, 0, 1);
+    });
+    cards.forEach(function (c, i) {
+      var depth = 0;
+      for (var j = i + 1; j < cards.length; j++) depth += cover[j];
+      c.style.transform = depth ? "scale(" + Math.max(.8, 1 - depth * .04).toFixed(4) + ")" : "";
+      c.style.filter = depth ? "brightness(" + (1 - Math.min(depth, 3) * .06).toFixed(3) + ")" : "";
+      var cr = c.getBoundingClientRect();
+      c.style.setProperty("--gr", ((vh - cr.top) * .25).toFixed(1) + "deg");
+    });
+  }
+
+  /* Logo as a balance: the two slanted bars are the beams of a scale. They pivot on their centres,
+     the coloured shapes ride on the beam ends like pans, and the upright bars follow the joints. */
+  (function () {
+    var hero = document.querySelector(".hero"), stage = document.getElementById("stage");
+    var kin = Array.prototype.slice.call(stage.querySelectorAll(".kin"));
+    /* layer order: 0 left upright, 1 right upright, 2 lower beam, 3 upper beam, 4 teal, 5 violet, 6 yellow, 7 red */
+    var cTop = [187.0, 130.3], cBot = [182.8, 358.4];
+    var teal = [85.6, 180.2], red = [288.4, 80.4], yellow = [84.4, 408.0], violet = [281.2, 308.8];
+    var R = 180 / Math.PI;
+    function rot(p, c, a) { var co = Math.cos(a), si = Math.sin(a), x = p[0] - c[0], y = p[1] - c[1]; return [c[0] + x * co - y * si, c[1] + x * si + y * co]; }
+    function f(n) { return n.toFixed(2); }
+    function upright(el, p0, q0, p1, q1) {
+      var m0 = [(p0[0] + q0[0]) / 2, (p0[1] + q0[1]) / 2], m1 = [(p1[0] + q1[0]) / 2, (p1[1] + q1[1]) / 2];
+      var da = (Math.atan2(q1[1] - p1[1], q1[0] - p1[0]) - Math.atan2(q0[1] - p0[1], q0[0] - p0[0])) * R;
+      el.setAttribute("transform", "translate(" + f(m1[0] - m0[0]) + " " + f(m1[1] - m0[1]) + ") rotate(" + f(da) + " " + f(m0[0]) + " " + f(m0[1]) + ")");
+    }
+    function pan(el, p0, p1, sw) {
+      el.setAttribute("transform", "translate(" + f(p1[0] - p0[0]) + " " + f(p1[1] - p0[1]) + ") rotate(" + f(sw) + " " + p0[0] + " " + p0[1] + ")");
+    }
+    /* top: upper beam angle, bot: lower beam angle (degrees), sw: how far the pans swing */
+    function pose(top, bot, sw) {
+      var at = top / R, ab = bot / R;
+      var nT = rot(teal, cTop, at), nR = rot(red, cTop, at), nY = rot(yellow, cBot, ab), nV = rot(violet, cBot, ab);
+      kin[3].setAttribute("transform", "rotate(" + f(top) + " " + cTop[0] + " " + cTop[1] + ")");
+      kin[2].setAttribute("transform", "rotate(" + f(bot) + " " + cBot[0] + " " + cBot[1] + ")");
+      pan(kin[4], teal, nT, sw); pan(kin[7], red, nR, -sw); pan(kin[6], yellow, nY, -sw * .8); pan(kin[5], violet, nV, sw * .8);
+      upright(kin[0], teal, yellow, nT, nY);
+      upright(kin[1], red, violet, nR, nV);
+    }
+    if (reduce) { pose(14, 10, 0); stage.style.transform = "rotateY(-14deg)"; return; }
+
+    /* Two damped springs: one tips both beams (the weighing), one tips them against each other (a twist),
+       so the scale swings both ways past level, overshoots and settles, and never repeats exactly. */
+    var a = 0, va = 0, ta = 0, d = 0, vd = 0, td = 0, nextA = 0, nextD = 0, last = 0, tx = 0, px = 0, running = false;
+    /* beams rest at about 27 degrees up to the right, so +27 is level; the targets cross level both ways */
+    var weights = [44, 6, 52, 27, -10, 38, 60, 16, 27, -4, 48, 30];
+    var wi = 0;
+    function rnd(lo, hi) { return lo + Math.random() * (hi - lo); }
+    hero.addEventListener("pointermove", function (e) { var r = hero.getBoundingClientRect(); tx = (e.clientX - r.left) / r.width - .5; });
+    hero.addEventListener("pointerleave", function () { tx = 0; });
+    function frame(now) {
+      if (!running) return;
+      var t = now / 1000, dt = Math.min(.05, last ? t - last : .016); last = t;
+      if (t > nextA) { ta = weights[wi++ % weights.length] + rnd(-5, 5); nextA = t + rnd(1.8, 3.6); }
+      if (t > nextD) { td = Math.random() < .35 ? 0 : rnd(-11, 11); nextD = t + rnd(1.2, 2.8); }
+      px += (tx - px) * .06;
+      var sc = clamp(scrollY / innerHeight, 0, 1);
+      var goal = clamp(ta + px * 30 + sc * 26, -16, 66);
+      va += ((goal - a) * 6.5 - va * 1.5) * dt; a += va * dt;
+      vd += ((td - d) * 9 - vd * 2.2) * dt; d += vd * dt;
+      pose(a + d, a - d, clamp(-va * .12, -14, 14));
+      stage.style.transform = "rotateX(" + f(6 + Math.sin(t * .4) * 4) + "deg) rotateY(" + f(Math.sin(t * .3) * 14 + px * 16) + "deg) rotateZ(" + f(Math.sin(t * .19) * 4) + "deg)";
+      requestAnimationFrame(frame);
+    }
+    function start() { if (!running) { running = true; last = 0; requestAnimationFrame(frame); } }
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (en) { if (en[0].isIntersecting) start(); else running = false; }).observe(hero);
+    } else start();
+  })();
+
+  /* Header state and scrollspy */
+  var header = document.querySelector("header.top");
+  var ind = document.querySelector("nav.main .ind");
+  var links = Array.prototype.slice.call(document.querySelectorAll("nav.main a"));
+  var indColors = ["var(--teal)", "var(--yellow)", "var(--red)", "var(--violet)", "var(--teal)"];
+  var current = null;
+  function placeInd() {
+    if (!current) { ind.style.opacity = 0; return; }
+    var nr = current.parentNode.getBoundingClientRect(), r = current.getBoundingClientRect();
+    ind.style.opacity = 1; ind.style.width = r.width + "px"; ind.style.transform = "translateX(" + (r.left - nr.left) + "px)";
+    ind.style.background = indColors[links.indexOf(current)];
+  }
+  var ticking = false;
+  function onScroll() {
+    ticking = false;
+    header.classList.toggle("scrolled", scrollY > 12);
+    var mark = innerHeight * .35, found = null;
+    links.forEach(function (a) { var s = document.querySelector(a.getAttribute("href")); if (s && s.getBoundingClientRect().top < mark) found = a; });
+    if (found !== current) { links.forEach(function (a) { a.classList.toggle("active", a === found); }); current = found; placeInd(); }
+    if (!reduce) motion();
+  }
+  addEventListener("scroll", function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+  addEventListener("resize", function () { placeInd(); onScroll(); });
+
+  try { var saved = localStorage.getItem("lang"); if (saved === "bg" || saved === "en") setLang(saved); } catch (e) {}
+  onScroll();
+})();
+</script>
+</body>
+</html>
