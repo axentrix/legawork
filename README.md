@@ -38,6 +38,10 @@ The Bulgarian text comes from the firm's own documents. The English is a transla
 - Brand shapes in each section float, rotate and pop in on scroll (`<i class="shape ...">` elements, tuned with `data-speed` and `data-rot`).
 - Everything respects the visitor's "reduce motion" setting.
 
+## Analytics
+
+Every page loads Google Tag Manager (container `GTM-W9WD5CR8`) in its `<head>`. Add new pages with the same snippet.
+
 ## Before going live
 
 - **Contact form:** it validates input but does not send anything yet. Connect it to a form service (for example Formspree or Netlify Forms) or a small mail endpoint.
