@@ -26,6 +26,11 @@ img { max-width: 100%; } [hidden] { display: none !important; }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { margin: 0; background: var(--white); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.65; }
+/* The canvas behind the page matches the footer, so short pages and the phone overscroll bounce show indigo, not white */
+html { background: var(--indigo); }
+body { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; }
+body > main { flex: 1 0 auto; }
+body > footer { flex-shrink: 0; }
 body.en .bg, body.bg .en { display: none !important; }
 a { color: inherit; }
 :focus-visible { outline: 2px solid var(--violet); outline-offset: 3px; border-radius: 3px; }
