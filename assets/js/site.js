@@ -90,7 +90,7 @@
   });
 
   /* ---------- Reveals: only items starting below the fold get the .pre state ---------- */
-  var groups = [".side", ".intro", ".prose > p", ".fan", ".principle", ".photo-wrap", ".member-card > :not(.photo-wrap)", ".person > .role", ".person > h3", ".highlights", ".cv > div", ".details .row", "form.enquiry", ".empty", "footer .wrap > div"];
+  var groups = [".side", ".intro", ".prose > p", ".fan", ".principle", ".photo-wrap", ".member-card > :not(.photo-wrap)", ".person > .role", ".person > h3", ".highlights", ".cv > div", ".details .row", "form.enquiry", ".empty", ".post", ".article-body > *", ".article-cta", "footer .wrap > div"];
   var items = [];
   groups.forEach(function (sel) {
     var seen = new Map();
@@ -275,4 +275,24 @@
 
   /* first visit: show after the intro animation on the homepage, quickly elsewhere */
   if (!get()) setTimeout(show, document.querySelector(".curtain") ? 2600 : 700);
+})();
+
+/* ---------- Reading progress bar on article pages ---------- */
+(function () {
+  var body = document.querySelector(".article-body"), header = document.querySelector("header.top");
+  if (!body) return;
+  var bar = document.createElement("div");
+  bar.className = "progress"; bar.setAttribute("aria-hidden", "true");
+  document.body.appendChild(bar);
+  var ticking = false;
+  function update() {
+    ticking = false;
+    if (header) bar.style.setProperty("--hh", header.offsetHeight + "px");
+    var r = body.getBoundingClientRect();
+    var p = Math.max(0, Math.min(1, (innerHeight * .6 - r.top) / r.height));
+    bar.style.setProperty("--p", p.toFixed(4));
+  }
+  addEventListener("scroll", function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+  addEventListener("resize", update);
+  update();
 })();
