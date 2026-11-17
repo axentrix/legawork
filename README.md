@@ -38,6 +38,10 @@ The Bulgarian text comes from the firm's own documents. The English is a transla
 - Brand shapes in each section float, rotate and pop in on scroll (`<i class="shape ...">` elements, tuned with `data-speed` and `data-rot`).
 - Everything respects the visitor's "reduce motion" setting.
 
+## Search engines
+
+`sitemap.xml` lists every page for Google; add each new page or article to it. `robots.txt` allows all crawlers and points to the sitemap.
+
 ## Analytics and cookies
 
 Every page has a small script in its `<head>` that prepares Google Tag Manager (container `GTM-W9WD5CR8`) with Google consent mode set to "denied". Tag Manager itself is loaded only after the visitor clicks **Accept** in the cookie banner (built in `assets/js/site.js`). The choice is stored in the visitor's browser (`lw-consent`), and "Cookie settings" in the footer reopens the banner. Add the same `<head>` script to any new page.
