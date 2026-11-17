@@ -92,7 +92,7 @@
   /* ---------- Reveals: only items starting below the fold get the .pre state ---------- */
   /* Article pages are left out on purpose: their text is shown at once, without fading in */
   var isArticle = !!document.querySelector(".article-body");
-  var groups = isArticle ? [] : [".side", ".intro", ".prose > p", ".fan", ".principle", ".photo-wrap", ".member-card > :not(.photo-wrap)", ".person > .role", ".person > h3", ".highlights", ".cv > div", ".details .row", "form.enquiry", ".empty", ".post", "footer .wrap > div"];
+  var groups = isArticle ? [] : [".side", ".intro", ".prose > p", ".fan", ".principle", ".photo-wrap", ".member-card > :not(.photo-wrap)", ".person > .role", ".person > h3", ".highlights", ".cv > div", ".areas-block", ".details .row", "form.enquiry", ".empty", ".post", "footer .wrap > div"];
   var items = [];
   groups.forEach(function (sel) {
     var seen = new Map();
